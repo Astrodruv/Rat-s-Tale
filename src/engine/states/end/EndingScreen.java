@@ -1,4 +1,4 @@
-package engine.end;
+package engine.states.end;
 
 import engine.Main;
 import org.newdawn.slick.Color;

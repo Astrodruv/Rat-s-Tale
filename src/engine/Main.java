@@ -15,17 +15,17 @@ public class Main extends StateBasedGame
 	public static final int SEWER_ID  = 1;
 	public static final int COCKROACH_FIGHT_ID  = 2;
 	public static final int PARKING_LOT_ID  = 3;
-	public static final int CROSSYROAD_ID  = 4;
-	public static final int BIRD_FIGHT_ID  = 5;
+	public static final int BIRD_FIGHT_ID  = 4;
+	public static final int CROSSYROAD_ID  = 5;
 	public static final int JANITORS_CLOSET_ID  = 6;
 	public static final int SNEAK_ID  = 7;
 	public static final int CLASSROOM_ID  = 8;
 	public static final int TEACHER_FIGHT  = 9;
 	public static final int GYM_ID  = 10;
 	public static final int DODGEBALL_FIGHT_ID  = 11;
-	public static final int MAZE  = 12;
-	public static final int CAFETERIA  = 13;
-	public static final int CAFETERIAFIGHT  = 14;
+	public static final int MAZE_ID  = 12;
+	public static final int CAFETERIA_ID  = 13;
+	public static final int CAFETERIA_FIGHT_ID  = 14;
 	public static final int END_ID  = 15;
 
 	private BasicGameState game;
@@ -33,7 +33,6 @@ public class Main extends StateBasedGame
 	public Main(String name) 
 	{
 		super(name);
-
 	}
 
 	public static int getScreenWidth()
