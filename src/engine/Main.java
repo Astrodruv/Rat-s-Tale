@@ -1,5 +1,6 @@
 package engine;
 
+import engine.states.start.TitleScreen;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -28,11 +29,27 @@ public class Main extends StateBasedGame
 	public static final int CAFETERIA_FIGHT_ID  = 14;
 	public static final int END_ID  = 15;
 
-	private BasicGameState game;
-    
+	private BasicGameState title;
+	private BasicGameState sewer;
+	private BasicGameState cockroachFight;
+	private BasicGameState parkingLot;
+	private BasicGameState birdFight;
+	private BasicGameState crossyRoad;
+	private BasicGameState janitorsCloset;
+	private BasicGameState sneak;
+	private BasicGameState classroom;
+	private BasicGameState teacherFight;
+	private BasicGameState gym;
+	private BasicGameState dodgeballFight;
+	private BasicGameState maze;
+	private BasicGameState cafeteria;
+	private BasicGameState cafeteriaFight;
+	private BasicGameState end;
+
 	public Main(String name) 
 	{
 		super(name);
+		title = new TitleScreen(TITLE_ID);
 	}
 
 	public static int getScreenWidth()
@@ -48,14 +65,14 @@ public class Main extends StateBasedGame
 
 	public void initStatesList(GameContainer gc) throws SlickException 
 	{
-		addState(game);
+		addState(title);
 	}
 
 	public static void main(String[] args) 
 	{
 		try 
 		{
-			appgc = new AppGameContainer(new Main("My First Project"));
+			appgc = new AppGameContainer(new Main("A Rat's Rale"));
 			System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
 		
 			appgc.setDisplayMode(appgc.getScreenWidth(), appgc.getScreenHeight(), false);
