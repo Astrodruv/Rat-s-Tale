@@ -1,4 +1,6 @@
 package objects;
 
-public class GameObject {
+public class GameObject
+{
+
 }

@@ -1,6 +1,7 @@
 package engine.states.sewer;
 
 import engine.Main;
+import objects.platforms.gameplatforms.SewerPlatform;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -10,6 +11,8 @@ public class Sewer extends BasicGameState
 	Image sewer;
 	Image scaled;
 	private int id;
+
+	public SewerPlatform sp;
 
 	public Sewer(int id)
 	{
@@ -40,6 +43,7 @@ public class Sewer extends BasicGameState
 		g.setColor(Color.white);
 		g.drawString("Hello World!", Main.getScreenWidth() * .5f, Main.getScreenHeight() * .5f);
 		g.drawImage(scaled,0,0);
+//		sp.groundCheck();
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
