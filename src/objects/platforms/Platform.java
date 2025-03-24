@@ -2,12 +2,16 @@ package objects.platforms;
 
 import engine.Main;
 import objects.GameObject;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 public class Platform extends GameObject
 {
     public float xPlayer;
     public float yPlayer;
+
+    public float x = 0;
+    public float y = 400;
 
     public Image image;
 
@@ -18,7 +22,7 @@ public class Platform extends GameObject
         this.yPlayer = y;
     }
 
-    public boolean groundCheck(int x, int y)
+    public boolean groundCheck(float x, float y)
     {
         boolean xCheck = false;
         boolean yCheck = false;
@@ -37,5 +41,11 @@ public class Platform extends GameObject
         else {
             return false;
         }
+    }
+
+    public void render(Graphics g)
+    {
+        g.drawRect(x, y, Main.getScreenWidth(), 400);
+        System.out.println(groundCheck(x,y));
     }
 }
