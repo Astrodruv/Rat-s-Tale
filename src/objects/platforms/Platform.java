@@ -10,6 +10,8 @@ public class Platform extends GameObject
     public float xPlayer;
     public float yPlayer;
 
+    public float xSpeed;
+
     public float x = 0;
     public float y = 400;
 
