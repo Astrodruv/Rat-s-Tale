@@ -1,4 +1,14 @@
 package objects.entities.player;
 
-public class Player {
+import objects.entities.Entity;
+
+public class Player extends Entity
+{
+
+
+
+    public Player()
+    {
+
+    }
 }

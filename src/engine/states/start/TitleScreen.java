@@ -8,7 +8,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class TitleScreen extends BasicGameState {
+public class TitleScreen extends BasicGameState
+{
 	private int id;
 
 	public TitleScreen(int id)
@@ -20,26 +21,23 @@ public class TitleScreen extends BasicGameState {
 	{
 		return id;		
 	}
-
-	public static GameContainer gc;
-	StateBasedGame sbg;
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
-		this.gc = gc;
-		this.sbg = sbg;
+		// This code happens when you enter a game state for the *first time.*
+		gc.setShowFPS(true);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
-	{
-
+	{	
+		// This updates your game's logic every frame.  NO DRAWING.
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
-		g.setBackground(Color.gray);
-		g.setColor(Color.black);
-		g.drawString("RAT'S TALE", (float) Main.getScreenWidth() / 2, (float) Main.getScreenHeight() / 2);
+		// This code renders shapes and images every frame.
+		g.setColor(Color.white);
+		g.drawString("Hello World!", Main.getScreenWidth() * .5f, Main.getScreenHeight() * .5f);
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
