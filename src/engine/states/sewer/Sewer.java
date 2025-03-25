@@ -1,16 +1,23 @@
 package engine.states.sewer;
 
 import engine.Main;
+import objects.entities.player.Player;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
 import objects.platforms.gameplatforms.SewerPlatform;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import ui.images.ImageRenderer;
 
 public class Sewer extends BasicGameState
 {
 	Image sewer;
 	Image scaled;
 	private int id;
+	private static Player player;
 
 	public SewerPlatform sp;
 
@@ -28,21 +35,18 @@ public class Sewer extends BasicGameState
 	{
 		// This code happens when you enter a game state for the *first time.*
 		gc.setShowFPS(true);
-		sewer = new Image("res/Sewer_Background.png");
-		scaled = sewer.getScaledCopy(Main.getScreenWidth(),Main.getScreenHeight());
+		player = new Player(0,0,5,5,100,50, ImageRenderer.rat);
+
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
-	{	
-		// This updates your game's logic every frame.  NO DRAWING.
+	{
+
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
-		// This code renders shapes and images every frame.
-		g.setColor(Color.white);
-		g.drawString("Hello World!", Main.getScreenWidth() * .5f, Main.getScreenHeight() * .5f);
-		g.drawImage(scaled,0,0);
+		player.render(g);
 //		sp.groundCheck();
 	}
 	

@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import ui.images.ImageRenderer;
 
 public class TitleScreen extends BasicGameState
 {
@@ -24,8 +25,9 @@ public class TitleScreen extends BasicGameState
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
-		// This code happens when you enter a game state for the *first time.*
-		gc.setShowFPS(true);
+		this.gc = gc;
+		this.sbg = sbg;
+		ImageRenderer.loadImages();
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -36,8 +38,6 @@ public class TitleScreen extends BasicGameState
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
 		// This code renders shapes and images every frame.
-		g.setColor(Color.white);
-		g.drawString("Hello World!", Main.getScreenWidth() * .5f, Main.getScreenHeight() * .5f);
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
@@ -57,7 +57,7 @@ public class TitleScreen extends BasicGameState
 	
 	public void mousePressed(int button, int x, int y)
 	{
-		// This code happens every time the user presses the mouse
+		this.sbg.enterState(1);
 	}
 	
 	

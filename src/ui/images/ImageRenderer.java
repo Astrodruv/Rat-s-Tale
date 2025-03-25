@@ -13,7 +13,7 @@ public class ImageRenderer
         try {
             sewerBackground = new Image("res/Sewer_Background.png");
             movingPlatform = new Image("res/movingPlatform.png");
-            ratIdle = new Image("res/Rat_Idle.png");
+            ratIdle = new Image("res/Rat_Idle1.png");
         }
         catch (SlickException e)
         {

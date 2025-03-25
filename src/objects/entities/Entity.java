@@ -1,38 +1,35 @@
-package objects.entities;
-import org.newdawn.slick.Graphics;
+import objects.GameObject;
 import org.newdawn.slick.Image;
 
+public abstract class Entity extends GameObject {
+    protected static int curHealth;
+    protected static int maxHealth;
+    protected int attackDamage;
+    protected float xSpeed;
+    protected float ySpeed;
+    protected Image image;
 
-public abstract class Entity
-{
-    protected int maxHealth;
-    protected int curHealth;
-    public boolean attack;
-
-    public int xSpeed;
-    public int ySpeed;
-
-    public Image image;
-
-
-    public Entity()
-    {
-
+    public Entity(float x, float y, float xSpeed, float ySpeed, int health, int attackDamage, Image image) {
+        super(x, y);
+        this.xSpeed = xSpeed;
+        this.ySpeed = ySpeed;
+        maxHealth = health;
+        curHealth = maxHealth;
+        this.attackDamage = attackDamage;
+        this.image = image;
     }
 
-    public void takeDamage(int amount)
-    {
+    public static float getPercentHealth(){
+        return (float) curHealth / maxHealth;
+    }
+  
+      public void takeDamage(int amount){
         if(curHealth > 0) {
             curHealth = curHealth - amount;
         }
     }
-
-    public void render(Graphics g)
-    {
-
-    }
-
-
-
-
+  
 }
+
+
+
