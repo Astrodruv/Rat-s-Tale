@@ -9,7 +9,8 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import ui.images.ImageRenderer;
 
-public class TitleScreen extends BasicGameState {
+public class TitleScreen extends BasicGameState
+{
 	private int id;
 
 	public TitleScreen(int id)
@@ -21,9 +22,6 @@ public class TitleScreen extends BasicGameState {
 	{
 		return id;		
 	}
-
-	public static GameContainer gc;
-	StateBasedGame sbg;
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
@@ -33,15 +31,13 @@ public class TitleScreen extends BasicGameState {
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
-	{
-
+	{	
+		// This updates your game's logic every frame.  NO DRAWING.
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
-		g.setBackground(Color.gray);
-		g.setColor(Color.black);
-		g.drawString("RAT'S TALE", (float) Main.getScreenWidth() / 2, (float) Main.getScreenHeight() / 2);
+		// This code renders shapes and images every frame.
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 

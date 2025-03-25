@@ -1,5 +1,3 @@
-package objects.entities;
-
 import objects.GameObject;
 import org.newdawn.slick.Image;
 
@@ -24,5 +22,14 @@ public abstract class Entity extends GameObject {
     public static float getPercentHealth(){
         return (float) curHealth / maxHealth;
     }
-
+  
+      public void takeDamage(int amount){
+        if(curHealth > 0) {
+            curHealth = curHealth - amount;
+        }
+    }
+  
 }
+
+
+

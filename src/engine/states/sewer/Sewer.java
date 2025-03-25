@@ -6,14 +6,20 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import objects.platforms.gameplatforms.SewerPlatform;
+import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import ui.images.ImageRenderer;
 
 public class Sewer extends BasicGameState
 {
+	Image sewer;
+	Image scaled;
 	private int id;
 	private static Player player;
+
+	public SewerPlatform sp;
 
 	public Sewer(int id)
 	{
@@ -24,12 +30,13 @@ public class Sewer extends BasicGameState
 	{
 		return id;		
 	}
-	
+
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		// This code happens when you enter a game state for the *first time.*
 		gc.setShowFPS(true);
 		player = new Player(0,0,5,5,100,50, ImageRenderer.rat);
+
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -40,6 +47,7 @@ public class Sewer extends BasicGameState
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
 		player.render(g);
+//		sp.groundCheck();
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
