@@ -1,5 +1,6 @@
 package engine;
 
+import engine.states.sewer.Sewer;
 import engine.states.start.TitleScreen;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -50,6 +51,7 @@ public class Main extends StateBasedGame
 	{
 		super(name);
 		title = new TitleScreen(TITLE_ID);
+		sewer = new Sewer(SEWER_ID);
 	}
 
 	public static int getScreenWidth()
@@ -66,6 +68,7 @@ public class Main extends StateBasedGame
 	public void initStatesList(GameContainer gc) throws SlickException 
 	{
 		addState(title);
+		addState(sewer);
 	}
 
 	public static void main(String[] args) 

@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import ui.images.ImageRenderer;
 
 public class TitleScreen extends BasicGameState {
 	private int id;
@@ -28,6 +29,7 @@ public class TitleScreen extends BasicGameState {
 	{
 		this.gc = gc;
 		this.sbg = sbg;
+		ImageRenderer.loadImages();
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -59,7 +61,7 @@ public class TitleScreen extends BasicGameState {
 	
 	public void mousePressed(int button, int x, int y)
 	{
-		// This code happens every time the user presses the mouse
+		this.sbg.enterState(1);
 	}
 	
 	
