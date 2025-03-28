@@ -33,7 +33,6 @@ public class Player extends Entity {
         g.setColor(Color.white);
         g.drawString("In Air: " + inAir, 175, 200);
         g.drawString("Jump? " + jump, 175, 225);
-
         image.draw(x,y);
     }
 

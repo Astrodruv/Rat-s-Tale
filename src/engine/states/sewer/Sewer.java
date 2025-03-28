@@ -1,5 +1,6 @@
 package engine.states.sewer;
 
+
 import objects.GameObject;
 import objects.entities.player.Player;
 import objects.healthbars.CockroachHealthBar;
@@ -23,7 +24,8 @@ public class Sewer extends BasicGameState
 	private static SewerPlatform platform1;
 	private static SewerPlatform platform2;
 	private static SewerPlatform platform3;
-	private static CockroachHealthBar testBossHealthBar;
+
+private static CockroachHealthBar testBossHealthBar;
 
 	public Sewer(int id) {
 		this.id = id;
@@ -38,7 +40,8 @@ public class Sewer extends BasicGameState
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		player = new Player();
-		playerHealthBar = new PlayerHealthBar();
+    
+    playerHealthBar = new PlayerHealthBar();
 		background = ImageRenderer.sewerBackground;
 		platform1 = new SewerPlatform(0, 800);
 		platform2 = new SewerPlatform(300, 700);
@@ -61,8 +64,10 @@ public class Sewer extends BasicGameState
 		g.setBackground(Color.white);
 		background.draw();
 		player.render(g);
+    
 		playerHealthBar.render(g);
 		testBossHealthBar.render(g);
+    
 		platform1.render(g);
 		platform2.render(g);
 		platform3.render(g);

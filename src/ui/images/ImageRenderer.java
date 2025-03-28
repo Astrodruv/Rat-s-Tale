@@ -16,6 +16,9 @@ public class ImageRenderer
     public static Image movingPlatform;
     public static Image ratIdle;
 
+    public static Image cockroachIdle;
+    public static Image cockroachWalking;
+
     public static void loadImages()
     {
         try {
@@ -27,7 +30,7 @@ public class ImageRenderer
             ratIdle = ratIdleUnscaled.getScaledCopy(screenRatio);
             movingPlatform = movingPlatformUnscaled.getScaledCopy(screenRatio);
 
-            System.out.println("Screen ratio scaling: " + screenRatio);
+          System.out.println("Screen ratio scaling: " + screenRatio);
         }
         catch (SlickException e)
         {

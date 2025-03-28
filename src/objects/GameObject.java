@@ -29,7 +29,6 @@ public abstract class GameObject {
 
     public boolean collidesWith(GameObject o) {
         return this.x <= o.x + o.w && this.x + this.w >= o.x && this.y + this.h >= o.y && this.y <= o.y + o.h;
-    }
 
     public abstract void collisions();
 

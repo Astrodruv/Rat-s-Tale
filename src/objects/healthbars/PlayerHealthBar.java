@@ -20,4 +20,8 @@ public class PlayerHealthBar extends HealthBar {
     public void collisions(){
 
     }
+
+    public void collisions(){
+
+    }
 }
