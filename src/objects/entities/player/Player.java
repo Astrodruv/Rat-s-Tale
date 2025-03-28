@@ -33,11 +33,6 @@ public class Player extends Entity {
         g.setColor(Color.white);
         g.drawString("In Air: " + inAir, 175, 200);
         g.drawString("Jump? " + jump, 175, 225);
-        g.drawString("yAccel: " + yAccel, 200, 250);
-        g.drawString("x: " + x, 300, 200);
-        g.drawString("y: " + y, 300, 225);
-        g.drawString("screenX: " + Main.getScreenWidth(), 425, 200);
-        g.drawString("screenY: " + Main.getScreenHeight(), 425, 225);
         image.draw(x,y);
     }
 
@@ -76,10 +71,16 @@ public class Player extends Entity {
     }
 
     public void collisions() {
-        boolean isCollidingWithPlatform = false;
+        boolean isCollidingWithPlatformTop = false;
+        boolean isCollidingWithPlatformBottom = false;
+
         for (GameObject o : Sewer.levelObjects) {
-            if (o instanceof Platform && collidesWith(o)){
-                isCollidingWithPlatform = true;
+            if (o instanceof Platform && collidesWithBottomOf(o)){
+                isCollidingWithPlatformBottom = true;
+                y = o.getY() + h;
+            }
+            else if (o instanceof Platform && collidesWithTopOf(o)){
+                isCollidingWithPlatformTop = true;
                 y = o.getY() - h;
                 yAccel = 0;
                 if (inAir) {
@@ -89,17 +90,22 @@ public class Player extends Entity {
             }
         }
 
-        if (!isCollidingWithPlatform){
-//            System.out.println("Is not colliding");
+        if (isCollidingWithPlatformBottom){
+            inAir = true;
+            ySpeed = 0;
+            yAccel -= 1.125f;
+        }
+        else if (!isCollidingWithPlatformTop){
             inAir = true;
             if (!jump) {
                 y -= yAccel;
                 yAccel -= 1.125f;
             }
         }
-//        else{
-//            System.out.println("Is colliding");
-//        }
+        else{
+            inAir = false;
+            ySpeed = 25;
+        }
     }
 
     public void carryMomentum(GameContainer gc){

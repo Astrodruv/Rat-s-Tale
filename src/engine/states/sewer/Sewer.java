@@ -1,10 +1,10 @@
 package engine.states.sewer;
 
-import engine.Main;
+
 import objects.GameObject;
-import objects.entities.enemy.boss.attacking.Cockroach;
 import objects.entities.player.Player;
-import objects.platforms.Platform;
+import objects.healthbars.CockroachHealthBar;
+import objects.healthbars.PlayerHealthBar;
 import objects.platforms.gamePlatforms.SewerPlatform;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
@@ -19,10 +19,13 @@ public class Sewer extends BasicGameState
 
 	private int id;
 	private static Player player;
+	private static PlayerHealthBar playerHealthBar;
 	private Image background;
 	private static SewerPlatform platform1;
 	private static SewerPlatform platform2;
 	private static SewerPlatform platform3;
+
+private static CockroachHealthBar testBossHealthBar;
 
 	public Sewer(int id) {
 		this.id = id;
@@ -37,11 +40,13 @@ public class Sewer extends BasicGameState
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		player = new Player();
+    
+    playerHealthBar = new PlayerHealthBar();
 		background = ImageRenderer.sewerBackground;
 		platform1 = new SewerPlatform(0, 800);
 		platform2 = new SewerPlatform(300, 700);
-		platform3 = new SewerPlatform(600, 1100);
-
+		platform3 = new SewerPlatform(400, 450);
+		testBossHealthBar = new CockroachHealthBar();
 
 		levelObjects.add(player);
 		levelObjects.add(platform1);
@@ -59,6 +64,10 @@ public class Sewer extends BasicGameState
 		g.setBackground(Color.white);
 		background.draw();
 		player.render(g);
+    
+		playerHealthBar.render(g);
+		testBossHealthBar.render(g);
+    
 		platform1.render(g);
 		platform2.render(g);
 		platform3.render(g);

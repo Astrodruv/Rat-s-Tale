@@ -19,9 +19,16 @@ public abstract class GameObject {
         this.y = y;
     }
 
-    public boolean collidesWith(GameObject o) {
-        return this.x <= o.x + o.w && this.x + this.w >= o.x && this.y <= o.y + o.h && this.y + this.h >= o.y;
+    public boolean collidesWithTopOf(GameObject o) {
+        return this.x <= o.x + o.w && this.x + this.w >= o.x && this.y + this.h >= o.y && this.y <= o.y;
     }
+
+    public boolean collidesWithBottomOf(GameObject o) {
+        return this.x <= o.x + o.w && this.x + this.w >= o.x && this.y >= o.y && this.y <= o.y + o.h;
+    }
+
+    public boolean collidesWith(GameObject o) {
+        return this.x <= o.x + o.w && this.x + this.w >= o.x && this.y + this.h >= o.y && this.y <= o.y + o.h;
 
     public abstract void collisions();
 
