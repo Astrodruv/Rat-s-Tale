@@ -16,6 +16,9 @@ public class ImageRenderer
     public static Image movingPlatform;
     public static Image ratIdle;
 
+    public static Image cockroachIdle;
+    public static Image cockroachWalking;
+
     public static void loadImages()
     {
         try {

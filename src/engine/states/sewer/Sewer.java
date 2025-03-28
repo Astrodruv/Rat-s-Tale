@@ -2,6 +2,7 @@ package engine.states.sewer;
 
 import engine.Main;
 import objects.GameObject;
+import objects.entities.enemy.boss.attacking.Cockroach;
 import objects.entities.player.Player;
 import objects.platforms.Platform;
 import objects.platforms.gamePlatforms.SewerPlatform;
@@ -22,7 +23,6 @@ public class Sewer extends BasicGameState
 	private static SewerPlatform platform1;
 	private static SewerPlatform platform2;
 	private static SewerPlatform platform3;
-
 
 	public Sewer(int id) {
 		this.id = id;

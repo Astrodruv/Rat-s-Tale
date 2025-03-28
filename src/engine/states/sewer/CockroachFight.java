@@ -1,6 +1,7 @@
 package engine.states.sewer;
 
 import engine.Main;
+import objects.entities.enemy.boss.attacking.Cockroach;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -12,6 +13,8 @@ public class CockroachFight extends BasicGameState
 {
 	private int id;
 
+	private Cockroach cockroach;
+
 	public CockroachFight(int id)
 	{
 		this.id = id;
@@ -19,25 +22,28 @@ public class CockroachFight extends BasicGameState
 	
 	public int getID() 
 	{
-		return id;		
+		return id;
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		// This code happens when you enter a game state for the *first time.*
 		gc.setShowFPS(true);
+
+		cockroach = new Cockroach();
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{	
 		// This updates your game's logic every frame.  NO DRAWING.
+		cockroach.update(gc);
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
-		// This code renders shapes and images every frame.
-		g.setColor(Color.white);
-		g.drawString("Hello World!", Main.getScreenWidth() * .5f, Main.getScreenHeight() * .5f);
+		// This code renders shapes and images every frame
+
+		cockroach.render(g);
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
