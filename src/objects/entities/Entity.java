@@ -1,4 +1,7 @@
+package objects.entities;
+
 import objects.GameObject;
+import objects.platforms.Platform;
 import org.newdawn.slick.Image;
 
 public abstract class Entity extends GameObject {
@@ -8,6 +11,7 @@ public abstract class Entity extends GameObject {
     protected float xSpeed;
     protected float ySpeed;
     protected Image image;
+    protected Image rightFacingImage;
 
     public Entity(float x, float y, float xSpeed, float ySpeed, int health, int attackDamage, Image image) {
         super(x, y);
@@ -17,19 +21,16 @@ public abstract class Entity extends GameObject {
         curHealth = maxHealth;
         this.attackDamage = attackDamage;
         this.image = image;
+        rightFacingImage = image;
+
+        w = image.getWidth();
+        h = image.getHeight();
+
     }
 
     public static float getPercentHealth(){
         return (float) curHealth / maxHealth;
     }
-  
-      public void takeDamage(int amount){
-        if(curHealth > 0) {
-            curHealth = curHealth - amount;
-        }
-    }
-  
+
+
 }
-
-
-

@@ -16,4 +16,8 @@ public class PlayerHealthBar extends HealthBar {
         g.setColor(color1);
         g.drawRect(x,y,w * Entity.getPercentHealth(),h);
     }
+
+    public void collisions(){
+
+    }
 }
