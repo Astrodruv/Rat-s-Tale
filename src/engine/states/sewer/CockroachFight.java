@@ -1,6 +1,7 @@
 package engine.states.sewer;
 
 import engine.Main;
+import objects.entities.Entity;
 import objects.entities.enemy.boss.attacking.Cockroach;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -9,15 +10,19 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.util.ArrayList;
+
 public class CockroachFight extends BasicGameState
 {
 	private int id;
 
 	private Cockroach cockroach;
+	public static ArrayList<Entity> roaches;
 
 	public CockroachFight(int id)
 	{
 		this.id = id;
+		roaches = new ArrayList<>();
 	}
 	
 	public int getID() 
@@ -31,6 +36,8 @@ public class CockroachFight extends BasicGameState
 		gc.setShowFPS(true);
 
 		cockroach = new Cockroach();
+
+		roaches.add(cockroach);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException

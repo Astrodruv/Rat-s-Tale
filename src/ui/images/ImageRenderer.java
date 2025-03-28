@@ -30,7 +30,7 @@ public class ImageRenderer
             ratIdle = ratIdleUnscaled.getScaledCopy(screenRatio);
             movingPlatform = movingPlatformUnscaled.getScaledCopy(screenRatio);
 
-            System.out.println(screenRatio);
+          System.out.println("Screen ratio scaling: " + screenRatio);
         }
         catch (SlickException e)
         {

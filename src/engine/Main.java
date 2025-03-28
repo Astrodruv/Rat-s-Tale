@@ -31,9 +31,9 @@ public class Main extends StateBasedGame
 	public static final int CAFETERIA_FIGHT_ID  = 14;
 	public static final int END_ID  = 15;
 
-	private BasicGameState title;
-	private BasicGameState sewer;
-	private BasicGameState cockroachFight;
+	private final BasicGameState title;
+	private final BasicGameState sewer;
+	private final BasicGameState cockroachFight;
 	private BasicGameState parkingLot;
 	private BasicGameState birdFight;
 	private BasicGameState crossyRoad;

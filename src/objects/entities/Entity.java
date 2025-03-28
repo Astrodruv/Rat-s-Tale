@@ -28,8 +28,14 @@ public abstract class Entity extends GameObject {
 
     }
 
-    public static float getPercentHealth(){
-        return (float) curHealth / maxHealth;
+    public static float getPercentHealth(){ // Change this later to be applicable each individual entity being tracked
+//        return (float) curHealth / maxHealth;
+        return 0.75f;
+    }
+
+    public float damages(int amount)
+    {
+        return curHealth = curHealth - amount;
     }
 
 
