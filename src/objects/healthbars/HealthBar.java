@@ -14,6 +14,8 @@ public abstract class HealthBar extends GameObject {
 
     public HealthBar(float x, float y, float w, float h, Color color1, Color color2){
         super(x, y);
+        this.x = x;
+        this.y = y;
         this.w = w;
         this.h = h;
         this.color1 = color1;
