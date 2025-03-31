@@ -109,7 +109,7 @@ public class Cockroach extends Entity
             }
             else if(g instanceof Player && g.collidesWith(g))
             {
-                Player.damage(5);
+                Player.damaged(5);
             }
         }
 
