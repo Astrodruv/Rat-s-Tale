@@ -55,7 +55,7 @@ public class CockroachFight extends BasicGameState
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
-		// This code happens when you enter a gameState.  
+		// This code happens when you enter a gameState.
 	}
 
 	public void leave(GameContainer gc, StateBasedGame sbg) 

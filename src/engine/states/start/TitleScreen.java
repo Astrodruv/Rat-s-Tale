@@ -62,6 +62,7 @@ public class TitleScreen extends BasicGameState {
 	public void mousePressed(int button, int x, int y)
 	{
 		this.sbg.enterState(1);
+		this.sbg.enterState(2);
 	}
 	
 	

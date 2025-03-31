@@ -11,6 +11,7 @@ public class ImageRenderer
     public static Image sewerBackgroundUnscaled;
     public static Image movingPlatformUnscaled;
     public static Image ratIdleUnscaled;
+    public static Image cockroachIdleUnscaled;
 
     public static Image sewerBackground;
     public static Image movingPlatform;
@@ -24,11 +25,17 @@ public class ImageRenderer
         try {
             sewerBackgroundUnscaled = new Image("res/Sewer_Background.png");
             movingPlatformUnscaled = new Image("res/Moving_Platform.png");
+
             ratIdleUnscaled = new Image("res/Rat_Idle1.png");
 
+            cockroachIdleUnscaled = new Image("res/Cockroach_Idle.png");
+
             sewerBackground = sewerBackgroundUnscaled.getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
-            ratIdle = ratIdleUnscaled.getScaledCopy(screenRatio);
             movingPlatform = movingPlatformUnscaled.getScaledCopy(screenRatio);
+
+            ratIdle = ratIdleUnscaled.getScaledCopy(screenRatio);
+
+            cockroachIdle = cockroachIdleUnscaled.getScaledCopy(screenRatio);
 
           System.out.println("Screen ratio scaling: " + screenRatio);
         }

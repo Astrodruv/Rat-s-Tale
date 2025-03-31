@@ -25,11 +25,11 @@ public class Cockroach extends Entity
 
 
     private boolean leftDirection;
-    protected Image image;
 
     public Cockroach()
     {
-        super(Main.getScreenWidth(), 400, 15, 25, 100, 20, ImageRenderer.cockroachIdle);
+
+        super(500, 400, 15, 25, 100, 20, ImageRenderer.cockroachIdle);
 
         xSpeed = 15;
         ySpeed = 25;
@@ -40,21 +40,13 @@ public class Cockroach extends Entity
         jump = true;
         inAir = false;
 
-        leftDirection = true;
-        image = ImageRenderer.cockroachIdle;
+        leftDirection = false;
     }
 
     public void render(Graphics g)
     {
-        if(!leftDirection) {
-            image.draw(x,y);
-        }
-        else
-        {
-            image.getFlippedCopy(true, false);
-            image.draw(x, y);
-        }
-
+        g.drawString(String.valueOf(leftDirection), 500, 500);
+        image.draw(x,y);
     }
 
     public void update(GameContainer gc)
@@ -66,6 +58,7 @@ public class Cockroach extends Entity
             if(x < 0)
             {
                 leftDirection = false;
+                image = rightFacingImage;
             }
         }
         if(!leftDirection)
@@ -74,8 +67,10 @@ public class Cockroach extends Entity
             if(x + w > Main.getScreenWidth())
             {
                 leftDirection = true;
+                image = image.getFlippedCopy(true, false);
             }
         }
+        collisions();
         if(jump)
         {
             if (timer < 0) {
@@ -87,7 +82,7 @@ public class Cockroach extends Entity
     public void jumps()
     {
         y = y + (ySpeed - yAccel);
-        yAccel -= 1.125F;
+        yAccel -= 1.5f;
     }
 
     public void collisions()
@@ -109,7 +104,7 @@ public class Cockroach extends Entity
             }
             else if(g instanceof Player && g.collidesWith(g))
             {
-                Player.damage(5);
+                Player.damaged(5);
             }
         }
 
