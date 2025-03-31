@@ -33,7 +33,7 @@ public abstract class Entity extends GameObject {
         return 0.75f;
     }
 
-    public static float damage(int amount)
+    public static float damaged(int amount)
     {
         return curHealth = curHealth - amount;
     }
