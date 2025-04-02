@@ -27,7 +27,7 @@ public class ImageRenderer
         try {
             sewerBackgroundUnscaled = new Image("res/Sewer_Background.png");
             movingPlatformUnscaled = new Image("res/Moving_Platform.png");
-            ratIdleUnscaled = new Image("res/Rat_Idle1.png");
+            ratIdleUnscaled = new Image("res/RatIdle.png");
             stationaryPlatformRight = new Image("res/Stationary_Platform_Right.png");
             stationaryPlatformLeft = new Image("res/Stationary_Platform_Left.png");
             sewerFloor = new Image("res/Sewer_Floor.png");
@@ -36,7 +36,8 @@ public class ImageRenderer
             sewerBackground = sewerBackgroundUnscaled.getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
             ratIdle = ratIdleUnscaled.getScaledCopy(screenRatio);
             movingPlatform = movingPlatformUnscaled.getScaledCopy(screenRatio);
-            sewerFloorScaled = sewerFloor.getScaledCopy(screenRatio);
+            sewerFloorScaled = sewerFloor.getScaledCopy(Main.getScreenWidth(), 70);
+            stationaryPlatformLeft = stationaryPlatformLeft.getScaledCopy(400,70);
 
           System.out.println("Screen ratio scaling: " + screenRatio);
         }
