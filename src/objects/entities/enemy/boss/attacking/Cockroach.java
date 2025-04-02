@@ -1,6 +1,7 @@
 package objects.entities.enemy.boss.attacking;
 
 import engine.Main;
+import engine.states.sewer.CockroachFight;
 import engine.states.sewer.Sewer;
 import objects.GameObject;
 import objects.entities.Entity;
@@ -8,7 +9,6 @@ import objects.entities.player.Player;
 import objects.platforms.Platform;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import ui.images.ImageRenderer;
 
 
@@ -17,14 +17,15 @@ public class Cockroach extends Entity
     private float xSpeed;
     private float ySpeed;
     private float yAccel;
+    private float permYSpeed;
     private int timer;
 
     public int health;
-    private boolean jump;
+    private boolean canJump;
     private boolean inAir;
 
-
     private boolean leftDirection;
+    private static double directionater = Math.random() * 1;
 
     public Cockroach()
     {
@@ -34,18 +35,28 @@ public class Cockroach extends Entity
         xSpeed = 15;
         ySpeed = 25;
         yAccel = 0;
-        timer = 360;
+        permYSpeed = 25;
+        timer = 130;
 
         health = 100;
-        jump = true;
+        canJump = false;
         inAir = false;
 
-        leftDirection = false;
+        if(directionater < 0.5)
+        {
+            leftDirection = true;
+            image = image.getFlippedCopy(true, false);
+        }
+        else
+        {
+            leftDirection = false;
+        }
     }
 
     public void render(Graphics g)
     {
-        g.drawString(String.valueOf(leftDirection), 500, 500);
+        g.drawString(String.valueOf(canJump), 500, 500);
+        g.drawString(String.valueOf(timer), 550, 500);
         image.draw(x,y);
     }
 
@@ -71,9 +82,9 @@ public class Cockroach extends Entity
             }
         }
         collisions();
-        if(jump)
+        if(timer < 0)
         {
-            if (timer < 0) {
+            if (canJump) {
                 jumps();
             }
         }
@@ -81,31 +92,33 @@ public class Cockroach extends Entity
 
     public void jumps()
     {
-        y = y + (ySpeed - yAccel);
-        yAccel -= 1.5f;
+        y = y - (ySpeed - yAccel);
+        yAccel += 1.5f;
     }
 
     public void collisions()
     {
-        for(GameObject g: Sewer.levelObjects)
+        for(GameObject g: CockroachFight.roaches)
         {
             if(g instanceof Platform && g.collidesWithBottomOf(g))
             {
-                jump = false;
-                timer = 360;
-                y = g.getY() + h;
+                canJump = true;
+                if(ySpeed == permYSpeed)
+                {
+                    canJump = false;
+                    y = g.getY() - h;
+                }
             }
-            if(g instanceof Platform && g.collidesWithTopOf(g))
-            {
-               ySpeed = 0;
-               yAccel = -1.125F;
-               y = g.getY() - h;
-               timer = 360;
-            }
-            else if(g instanceof Player && g.collidesWith(g))
-            {
-                Player.damaged(5);
-            }
+//            if(g instanceof Platform && g.collidesWithTopOf(g))
+//            {
+//                y = g.getY() - h;
+//                ySpeed = 0;
+//                yAccel = -1.125F;
+//            }
+//            else if(g instanceof Player && g.collidesWith(g))
+//            {
+//                Player.damaged(5);
+//            }
         }
 
     }

@@ -47,7 +47,7 @@ private static CockroachHealthBar testBossHealthBar;
 	{
 		player = new Player();
     
-    playerHealthBar = new PlayerHealthBar();
+    	playerHealthBar = new PlayerHealthBar();
 		background = ImageRenderer.sewerBackground;
 		platform1 = new SewerPlatform(0, 800);
 		platform2 = new SewerPlatform(300, 700);
@@ -108,8 +108,6 @@ private static CockroachHealthBar testBossHealthBar;
 	{
 
 	}
-	
-	
 
 
 }

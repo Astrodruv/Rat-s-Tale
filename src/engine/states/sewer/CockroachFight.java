@@ -1,23 +1,30 @@
 package engine.states.sewer;
 
 import engine.Main;
+import objects.GameObject;
 import objects.entities.Entity;
 import objects.entities.enemy.boss.attacking.Cockroach;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
+import objects.platforms.Platform;
+import objects.platforms.gamePlatforms.SewerPlatform;
+import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import ui.images.ImageRenderer;
 
 import java.util.ArrayList;
 
 public class CockroachFight extends BasicGameState
 {
 	private int id;
+	private Image background;
 
 	private Cockroach cockroach;
-	public static ArrayList<Entity> roaches;
+
+	private SewerPlatform platform1;
+	private SewerPlatform platform2;
+	private SewerPlatform platform3;
+
+	public static ArrayList<GameObject> roaches;
 
 	public CockroachFight(int id)
 	{
@@ -35,9 +42,18 @@ public class CockroachFight extends BasicGameState
 		// This code happens when you enter a game state for the *first time.*
 		gc.setShowFPS(true);
 
+		background = ImageRenderer.sewerBackground;
+
 		cockroach = new Cockroach();
+		platform1 = new SewerPlatform(0, 700);
+		platform2 = new SewerPlatform(200, 700);
+		platform3 = new SewerPlatform(400,700);
 
 		roaches.add(cockroach);
+		roaches.add(platform1);
+		roaches.add(platform2);
+		roaches.add(platform3);
+
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
@@ -48,9 +64,14 @@ public class CockroachFight extends BasicGameState
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
-		// This code renders shapes and images every frame
+		// This code renders shapes and images every frame\\
 
+		background.draw();
 		cockroach.render(g);
+
+		platform1.render(g);
+		platform2.render(g);
+		platform3.render(g);
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 

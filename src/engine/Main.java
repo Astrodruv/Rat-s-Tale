@@ -80,7 +80,7 @@ public class Main extends StateBasedGame
 	{
 		try 
 		{
-			appgc = new AppGameContainer(new Main("A Rat's Rale"));
+			appgc = new AppGameContainer(new Main("A Rat's Tale"));
 			System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
 		
 			appgc.setDisplayMode(appgc.getScreenWidth(), appgc.getScreenHeight(), false);
