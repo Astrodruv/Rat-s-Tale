@@ -52,9 +52,9 @@ private static CockroachHealthBar testBossHealthBar;
 		platform1 = new SewerPlatform(0, 800);
 		platform2 = new SewerPlatform(300, 700);
 		platform3 = new SewerPlatform(400, 450);
-		platformLeft = new SewerPlatformLeft(20, 600);
+		platformLeft = new SewerPlatformLeft(20, 300);
 		platformRight = new SewerPlatformRight(1920, 300);
-		sewerFloor = new SewerFloor(20,2000);
+		sewerFloor = new SewerFloor(0,1000);
 		testBossHealthBar = new CockroachHealthBar();
 
 		levelObjects.add(player);
