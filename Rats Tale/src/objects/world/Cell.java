@@ -38,6 +38,15 @@ public class Cell {
 //        h = getHeight() * 1.5f;
     }
 
+    public void removeObject()
+    {
+        if(object != null)
+        {
+            object.setCell(null);
+            object = null;
+        }
+    }
+
     public void render(Graphics g){
         if (object != null){
             object.render(g);
